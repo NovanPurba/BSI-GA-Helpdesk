@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GA Helpdesk - PT Bumi Suksesindo</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- TOMBOL PILIH BAHASA -->
+        <div class="lang-switcher">
+            <button onclick="changeLanguage('id')" class="lang-btn active" id="btn-id">ID</button>
+            <button onclick="changeLanguage('en')" class="lang-btn" id="btn-en">EN</button>
+            <button onclick="changeLanguage('zh')" class="lang-btn" id="btn-zh">中文</button>
+        </div>
+
+        <!-- Header Logo -->
+        <header class="header">
+            <img src="assets/img/bsi-logo.png" alt="Logo PT Bumi Suksesindo" class="logo">
+        </header>
+
+        <!-- HALAMAN 1: MENU UTAMA -->
+        <div id="mainMenu" class="page-section active">
+            <h1 class="page-title" data-i18n="app_title">GA HELPDESK</h1>
+            
+            <div class="menu-grid">
+                <button onclick="showPage('formPage')" class="menu-btn primary-btn">
+                    <i class="fa-solid fa-file-signature"></i>
+                    <span data-i18n="menu_lapor">Lapor Keluhan</span>
+                </button>
+                
+                <a href="assets/docs/aturan-kamar.pdf" target="_blank" class="menu-btn secondary-btn">
+                    <i class="fa-solid fa-bed"></i>
+                    <span data-i18n="menu_kamar">Aturan Kamar</span>
+                </a>
+            </div>
+
+            <div class="menu-single">
+                <a href="assets/docs/jadwal-olahraga.pdf" target="_blank" class="menu-btn secondary-btn">
+                    <i class="fa-solid fa-volleyball"></i>
+                    <span data-i18n="menu_olahraga">Jadwal Olahraga</span>
+                </a>
+            </div>
+
+            <div class="footer-contact">
+                <hr>
+                <p data-i18n="contact_ga">Contact GA CS</p>
+                <div class="contact-icons">
+                    <a href="https://wa.me/6281234567890" target="_blank" class="wa-btn" title="WhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                    <a href="weixin://dl/chat?ID_WECHAT_ANDA" target="_blank" class="wechat-btn" title="WeChat">
+                        <i class="fa-brands fa-weixin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- HALAMAN 2: FORM KELUHAN -->
+        <div id="formPage" class="page-section">
+            <button onclick="showPage('mainMenu')" class="back-btn">
+                <i class="fa-solid fa-arrow-left"></i> <span data-i18n="btn_kembali">Kembali</span>
+            </button>
+            
+            <h1 class="page-title" data-i18n="form_title">LAPOR KELUHAN GA</h1>
+            
+            <form id="keluhanForm">
+                <input type="hidden" id="ticket_id" name="ticket_id">
+
+                <div class="form-group">
+                    <label for="nama" data-i18n="lbl_nama">NAMA</label>
+                    <input type="text" id="nama" name="nama" required data-i18n-ph="ph_nama" placeholder="Masukkan Nama Lengkap">
+                </div>
+
+                <div class="form-group">
+                    <label for="id_karyawan" data-i18n="lbl_id">ID KARYAWAN</label>
+                    <input type="text" id="id_karyawan" name="id_karyawan" required data-i18n-ph="ph_id" placeholder="Masukkan ID Karyawan">
+                </div>
+
+                <div class="form-group">
+                    <label for="no_hp" data-i18n="lbl_nohp">NOMOR HP (WHATSAPP)</label>
+                    <input type="tel" id="no_hp" name="no_hp" required data-i18n-ph="ph_nohp" placeholder="Contoh: 081234567890">
+                </div>
+
+                <div class="form-group">
+                    <label for="departement" data-i18n="lbl_dept">DEPARTEMENT</label>
+                    <select id="departement" name="departement" required>
+                        <option value="" disabled selected data-i18n="opt_dept">Pilih Departement</option>
+                        <option value="Asset Protection">Asset Protection</option>
+                        <option value="Commercial">Commercial</option>
+                        <option value="Complience & Community Development">Complience & Community Development</option>
+                        <option value="Environmental">Environmental</option>
+                        <option value="Finance & Accounting Operation">Finance & Accounting Operation</option>
+                        <option value="Fix Plant Maintenance">Fix Plant Maintenance</option>
+                        <option value="Geoscience">Geoscience</option>
+                        <option value="OHS">OHS</option>
+                        <option value="HR/GA">HR/GA</option>
+                        <option value="Management">Management</option>
+                        <option value="Mining">Mining</option>
+                        <option value="Mobile Maintenance">Mobile Maintenance</option>
+                        <option value="Operation Support">Operation Support</option>
+                        <option value="Process">Process</option>
+                        <option value="Technical Service">Technical Service</option>
+                        <option value="Underground">Underground</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="location" data-i18n="lbl_loc">LOCATION</label>
+                    <input type="text" id="location" name="location" required data-i18n-ph="ph_loc" placeholder="Lokasi Mess / Area">
+                </div>
+
+                <div class="form-group">
+                    <label for="category" data-i18n="lbl_cat">CATEGORY</label>
+                    <select id="category" name="category" required>
+                        <option value="" disabled selected data-i18n="opt_cat">Pilih Kategori Keluhan</option>
+                        <option value="Fasilitas Kamar" data-i18n="cat_1">Fasilitas Kamar</option>
+                        <option value="Kebersihan" data-i18n="cat_2">Kebersihan</option>
+                        <option value="Makan/Catering" data-i18n="cat_3">Makan/Catering</option>
+                        <option value="Lainnya" data-i18n="cat_4">Lainnya</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="complaint" data-i18n="lbl_comp">COMPLAINT</label>
+                    <textarea id="complaint" name="complaint" rows="4" required data-i18n-ph="ph_comp" placeholder="Jelaskan detail keluhan Anda..."></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn" data-i18n="btn_submit">
+                    SUBMIT
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- POP-UP MODAL SUKSES -->
+    <div id="successModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h2 data-i18n="modal_title">DATA BERHASIL DISUBMIT</h2>
+            <p data-i18n="modal_desc">Keluhan Anda telah masuk ke sistem kami dengan ID Tiket:</p>
+            <div class="ticket-box" id="displayTicketID">GA-XXXXX</div>
+            <p class="modal-note" data-i18n="modal_note">Silakan simpan ID ini untuk melacak status keluhan Anda.</p>
+            <button onclick="closeModalAndReturn()" class="modal-btn" data-i18n="btn_modal_back">Kembali ke Menu Utama</button>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
