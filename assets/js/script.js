@@ -164,22 +164,26 @@ document.getElementById('keluhanForm').addEventListener('submit', function(e) {
 
     const formData = new FormData(this);
 
-    // PASTE URL ASLI ANDA DI BAWAH INI
-    const scriptURL = 'https://homelab-novan.tailc7a3d1.ts.net/webhook-test/BSI-GA-Helpdesk'; 
+    // PASTE URL EXEC APPS SCRIPT HASIL NEW DEPLOYMENT DI SINI
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyWc7E--Q7w09XQKgeVUbxEHczoHeq7dJHyyOF1ROWa7a4KtNkNZoj4-NSPPxL4oBFJ_g/exec'; 
 
-    fetch(scriptURL, { method: 'POST', body: formData})
-        .then(response => {
-            document.getElementById('displayTicketID').innerText = newTicketID;
-            document.getElementById('successModal').style.display = 'flex';
-            
-            submitBtn.innerText = translations[currentLang].btn_submit;
-            submitBtn.disabled = false;
-        })
-        .catch(error => {
-            console.error('Error Pengiriman!', error.message);
-            alert('Gagal mengirim data. Silakan cek koneksi atau URL Apps Script Anda.');
-            
-            submitBtn.innerText = translations[currentLang].btn_submit;
-            submitBtn.disabled = false;
-        });
+    fetch(scriptURL, { 
+        method: 'POST', 
+        body: formData,
+        mode: 'no-cors' 
+    })
+    .then(() => {
+        document.getElementById('displayTicketID').innerText = newTicketID;
+        document.getElementById('successModal').style.display = 'flex';
+        
+        submitBtn.innerText = translations[currentLang].btn_submit;
+        submitBtn.disabled = false;
+    })
+    .catch(error => {
+        console.error('Error Pengiriman!', error);
+        alert('Gagal mengirim data. Silakan cek koneksi atau URL Apps Script Anda.');
+        
+        submitBtn.innerText = translations[currentLang].btn_submit;
+        submitBtn.disabled = false;
+    });
 });
