@@ -1,0 +1,247 @@
+:root {
+    --bsi-blue: #1A3B70;      
+    --bsi-gold: #A88E52;      
+    --bsi-gold-hover: #8C7541; 
+    --white: #FFFFFF;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: var(--bsi-blue); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--white);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px; 
+    padding: 30px;
+    text-align: center;
+}
+
+.header {
+    margin-bottom: 40px;
+}
+
+.logo {
+    max-width: 180px;
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 12px;
+}
+
+h1 {
+    font-size: 1.6rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 8px;
+}
+
+p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.menu-row {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.menu-btn {
+    flex: 1; 
+    background-color: var(--bsi-gold);
+    color: var(--white);
+    border: none;
+    border-radius: 15px; 
+    padding: 25px 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.menu-btn:hover {
+    background-color: var(--bsi-gold-hover);
+    transform: translateY(-4px); 
+}
+
+.menu-btn i {
+    font-size: 2.2rem; 
+}
+
+.btn-cs {
+    max-width: 200px; 
+}
+
+/* === CSS TAMBAHAN OPSI KELUHAN === */
+
+.back-btn-futuristic {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 10;
+}
+
+.back-btn-futuristic:hover {
+    background: var(--bsi-gold);
+    color: var(--white);
+    border-color: var(--bsi-gold);
+    transform: translateX(-4px) scale(1.05);
+    box-shadow: 0 0 15px rgba(168, 142, 82, 0.6);
+}
+
+/* === STYLING FORM KELUHAN === */
+.form-container {
+    max-width: 520px;
+    padding: 20px 20px 40px 20px;
+}
+
+.keluhan-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--bsi-gold);
+    letter-spacing: 1px;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--white);
+    color: #333;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--bsi-gold);
+    box-shadow: 0 0 10px rgba(168, 142, 82, 0.4);
+}
+
+.form-group .input-disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+    font-weight: bold;
+}
+
+/* Tombol Submit Emas Futuristik */
+.submit-btn {
+    margin-top: 10px;
+    background-color: var(--bsi-gold);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: var(--bsi-gold-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(168, 142, 82, 0.5);
+}
+
+.form-select {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: var(--white);
+    color: #333;
+    font-size: 0.95rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-select:focus {
+    border-color: var(--bsi-gold);
+    box-shadow: 0 0 10px rgba(168, 142, 82, 0.4);
+}
+
+.text-optional {
+    font-size: 0.75rem;
+    font-weight: normal;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+}
+
+.file-input {
+    background-color: var(--white);
+    padding: 8px 12px !important;
+    cursor: pointer;
+}
+
+.file-input::file-selector-button {
+    background-color: var(--bsi-blue);
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background 0.2s;
+}
+
+.file-input::file-selector-button:hover {
+    background-color: #122a52;
+}
