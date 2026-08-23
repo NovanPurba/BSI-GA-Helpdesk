@@ -80,13 +80,16 @@
         <p class="subtitle">Silakan pilih layanan yang Anda butuhkan</p>
 
         <!-- Menu Navigation Grid -->
+<!-- Menu Navigation Grid -->
         <div class="menu-grid">
-            <a href="<?= site_url('keluhan') ?>" class="menu-card gold-card">
+            <!-- Ubah href mengarah ke ticket/buat/keluhan -->
+            <a href="<?= site_url('ticket/buat/keluhan') ?>" class="menu-card gold-card">
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 <span>KELUHAN</span>
             </a>
 
-            <a href="<?= site_url('request') ?>" class="menu-card">
+            <!-- Ubah href mengarah ke ticket/buat/request -->
+            <a href="<?= site_url('ticket/buat/request') ?>" class="menu-card">
                 <i class="fa-solid fa-clipboard-list"></i>
                 <span>REQUEST</span>
             </a>
