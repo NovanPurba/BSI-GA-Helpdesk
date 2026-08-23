@@ -1,0 +1,201 @@
+:root {
+    --bg-dark: #0b1320;
+    --card-dark: #121c2d;
+    --input-dark: #1a2638;
+    --border-dark: #24344d;
+    --gold-main: #d4af37;
+    --gold-gradient: linear-gradient(135deg, #e6c200 0%, #a37c00 100%);
+    --text-white: #ffffff;
+    --text-muted: #8e9bb0;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: 'Inter', system-ui, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Card Container Lebar & Dinamis */
+.form-card {
+    background: #121c2d;
+    border: 1px solid #24344d;
+    border-radius: 16px;
+    padding: 32px;
+    max-width: 850px; /* Diperlebar untuk Desktop */
+    width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+    box-sizing: border-box;
+}
+
+/* Grid System Form (2 Kolom di Desktop) */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 20px;
+}
+
+/* Elemen Span Full Width (1 Kolom Penuh) */
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+/* Breakpoint Responsive untuk Layar HP/Mobile */
+@media (max-width: 640px) {
+    .form-card {
+        padding: 20px;
+    }
+    .form-grid {
+        grid-template-columns: 1fr; /* Kembali ke 1 Kolom di Layar Kecil */
+    }
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+}
+
+/* Stepper Fix */
+.stepper-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    position: relative;
+    margin: 20px 0 30px 0;
+}
+
+.stepper-container::before {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: var(--border-dark);
+    z-index: 1;
+}
+
+.step-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    z-index: 2;
+    flex: 1;
+}
+
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--card-dark);
+    border: 2px solid var(--border-dark);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.step-item.active .step-number {
+    background: var(--gold-main);
+    border-color: var(--gold-main);
+    color: #000;
+}
+
+.step-label {
+    font-size: 11px;
+    color: var(--text-muted);
+}
+
+.step-item.active .step-label {
+    color: var(--gold-main);
+    font-weight: 600;
+}
+
+/* Form Controls */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control, .form-select {
+    width: 100%;
+    padding: 12px;
+    background: var(--input-dark);
+    border: 1px solid var(--border-dark);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.form-control:focus, .form-select:focus {
+    outline: none;
+    border-color: var(--gold-main);
+}
+
+/* Priority Pills */
+.priority-selector {
+    display: flex;
+    gap: 8px;
+}
+
+.priority-btn {
+    flex: 1;
+    background: var(--input-dark);
+    border: 1px solid var(--border-dark);
+    color: var(--text-muted);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.priority-btn.active {
+    background: var(--gold-gradient);
+    color: #000;
+    font-weight: bold;
+    border: none;
+}
+
+/* Upload Area */
+.upload-dropzone {
+    border: 2px dashed var(--border-dark);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    background: var(--input-dark);
+    cursor: pointer;
+}
+
+.upload-dropzone i {
+    font-size: 24px;
+    color: var(--gold-main);
+    margin-bottom: 6px;
+}
+
+.btn-gold {
+    width: 100%;
+    padding: 14px;
+    background: var(--gold-gradient);
+    border: none;
+    border-radius: 8px;
+    color: #000;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+}
